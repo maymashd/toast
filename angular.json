@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "toast": {
+    "toasts": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/toast",
+            "outputPath": "dist/toasts",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "toast:build"
+            "browserTarget": "toasts:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "toast:build:production"
+              "browserTarget": "toasts:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "toast:build"
+            "browserTarget": "toasts:build"
           }
         },
         "test": {
@@ -114,15 +114,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "toast:serve"
+            "devServerTarget": "toasts:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "toast:serve:production"
+              "devServerTarget": "toasts:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "toast"
+    }
+  },
+  "defaultProject": "toasts",
+  "cli": {
+    "analytics": "d0eb1a42-dd4f-4a81-9cd3-667aca751c27"
+  }
 }

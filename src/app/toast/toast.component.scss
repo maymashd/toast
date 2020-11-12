@@ -1,0 +1,17 @@
+.d-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.pb-12 {
+  padding-bottom: 12px;
+  background-color: bisque;
+}
+
+.toaster-content {
+  position: absolute;
+  z-index: 5;
+}
+.example-full-width{
+  margin-left: 30px;
+}
