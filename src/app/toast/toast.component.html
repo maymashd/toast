@@ -6,7 +6,6 @@
            [formControl]="title"
            >
   </mat-form-field>
-  <br>
 
   <mat-form-field class="example-full-width">
     <mat-label>Body</mat-label>
@@ -16,11 +15,13 @@
            >
   </mat-form-field>
   <br>
-  <button mat-button color="primary" (click)="createToaster()">Create toast</button>
+  <button class="mdc-button mdc-button--raised"  color="warn" (click)="createToaster()">Create new toast</button>
+  <br>
 </form>
 
-<div style="display: flex; margin-left: 48px;border-radius: 7px;">
-  <mat-radio-group style="border: solid black 4px;"
+<div style="display: flex; margin-left: 48px">
+  <mat-radio-group
+  style="border: solid black 4px;"
     aria-labelledby="example-radio-group-label"
     class="example-radio-group d-block"
     [(ngModel)]="color">
@@ -29,7 +30,7 @@
     </mat-radio-button>
   </mat-radio-group>
 
-  <form class="example-form d-block" style="margin-left: 100px;border: solid black 4px;border-radius: 7px;" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
+  <form class="example-form d-block" style="margin-left: 100px;border: solid black 4px;border-radius: 7px;"  [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
 
     <mat-slide-toggle formControlName="showTitle" class="pb-12">Show title</mat-slide-toggle>
     <mat-slide-toggle formControlName="hasCloseButton" class="pb-12">Has close button</mat-slide-toggle>
@@ -37,13 +38,11 @@
 
     <button mat-raised-button color="primary" type="submit">Save Settings</button>
   </form>
-  
 
-  <div style="margin-left: 100px;" >
-    
+  <div style="margin-left: 100px">
     <mat-label><b>Vertical position</b></mat-label>
     <mat-radio-group
-      style="border: solid black 4px;border-radius: 7px;"
+    style="border: solid black 4px;border-radius: 7px;"
       aria-labelledby="example-radio-group-label"
       class="example-radio-group d-block"
       [(ngModel)]="vertical">
@@ -56,7 +55,7 @@
   <div style="margin-left: 100px">
     <mat-label><b>Horizontal position</b></mat-label>
     <mat-radio-group
-      style="border: solid black 4px;border-radius: 7px;"
+    style="border: solid black 4px;border-radius: 7px;"
       aria-labelledby="example-radio-group-label"
       class="example-radio-group d-block pb-12"
       [(ngModel)]="horizontal">
@@ -67,8 +66,8 @@
   </div>
 </div>
 
-<div>
-  <mat-label><b>Duration (0 for no close)</b></mat-label>
+<div style="margin-left: 100px;">
+  <mat-label><p id="duration">Duration (0 for no close)</p></mat-label>
   <mat-slider
     thumbLabel
     (valueChange)="setDuration($event)"
@@ -81,19 +80,19 @@
 <!--TOP-->
 <div class="toaster-content" style="top: 0; left: 0">
   <div *ngFor="let t of topStartToasts">
-    <app-toast-content [toast]="t" (removeToast)="removeToast($event)"></app-toast-content>
+    <app-toast-content [toast]="t" className="animationLeft" (removeToast)="removeToast($event)"></app-toast-content>
   </div>
 </div>
 
 <div class="toaster-content" style="top: 0; left: calc(50% - 125px)">
   <div *ngFor="let t of topCenterToasts">
-    <app-toast-content [toast]="t" (removeToast)="removeToast($event)"></app-toast-content>
+    <app-toast-content [toast]="t" className="animationCenter" (removeToast)="removeToast($event)"></app-toast-content>
   </div>
 </div>
 
 <div class="toaster-content" style="top: 0; right: 0">
   <div *ngFor="let t of topEndToasts">
-    <app-toast-content [toast]="t" (removeToast)="removeToast($event)"></app-toast-content>
+    <app-toast-content [toast]="t" className="animationRight" (removeToast)="removeToast($event)"></app-toast-content>
   </div>
 </div>
 
@@ -101,19 +100,19 @@
 
 <div class="toaster-content" style="top: 50%; left: 0">
   <div *ngFor="let t of centerStartToasts">
-    <app-toast-content [toast]="t" (removeToast)="removeToast($event)"></app-toast-content>
+    <app-toast-content [toast]="t" className="animationLeft" (removeToast)="removeToast($event)"></app-toast-content>
   </div>
 </div>
 
 <div class="toaster-content" style="top: 50%; left: calc(50% - 125px)">
   <div *ngFor="let t of centerCenterToasts">
-    <app-toast-content [toast]="t" (removeToast)="removeToast($event)"></app-toast-content>
+    <app-toast-content [toast]="t" className="animationCenter" (removeToast)="removeToast($event)"></app-toast-content>
   </div>
 </div>
 
 <div class="toaster-content" style="top: 50%; right: 0">
   <div *ngFor="let t of centerEndToasts">
-    <app-toast-content [toast]="t" (removeToast)="removeToast($event)"></app-toast-content>
+    <app-toast-content [toast]="t" className="animationRight" (removeToast)="removeToast($event)"></app-toast-content>
   </div>
 </div>
 
@@ -121,18 +120,18 @@
 
 <div class="toaster-content" style="bottom: 0; left: 0">
   <div *ngFor="let t of bottomStartToasts">
-    <app-toast-content [toast]="t" (removeToast)="removeToast($event)"></app-toast-content>
+    <app-toast-content [toast]="t" className="animationLeft" (removeToast)="removeToast($event)"></app-toast-content>
   </div>
 </div>
 
 <div class="toaster-content" style="bottom: 0; left: calc(50% - 125px)">
   <div *ngFor="let t of bottomCenterToasts">
-    <app-toast-content [toast]="t" (removeToast)="removeToast($event)"></app-toast-content>
+    <app-toast-content [toast]="t" className="animationCenter" (removeToast)="removeToast($event)"></app-toast-content>
   </div>
 </div>
 
 <div class="toaster-content" style="bottom: 0; right: 0">
   <div *ngFor="let t of bottomEndToasts">
-    <app-toast-content [toast]="t" (removeToast)="removeToast($event)"></app-toast-content>
+    <app-toast-content [toast]="t" className="animationRight" (removeToast)="removeToast($event)"></app-toast-content>
   </div>
 </div>
